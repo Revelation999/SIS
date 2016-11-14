@@ -62,6 +62,6 @@ public class Student
 			}
 		public void setClass3(Course class3)
 			{
-				this.class3 = class3;//good?
+				this.class3 = class3;
 			}
 	}
