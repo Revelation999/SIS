@@ -54,4 +54,16 @@ public class Method
 				}
 			return count/(grades.length);
 		}
+		public static void SortAlphabetically()
+		{
+			
+		}
+		public static void SortGPA()
+		{
+			
+		}
+		public static void SortClass()
+		{
+			
+		}
 	}
