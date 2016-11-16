@@ -91,5 +91,17 @@ public class Method
 		public static void changeGrade(Student a)
 		{
 			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
+			int choiceClass = JOptionPane.showOptionDialog(null, "Which class?", "Changing grade", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
+			Object grades[] = {"A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"};
+			int gradesChoice = JOptionPane.showOptionDialog(null, "What grade?", "Changing grade", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, grades, grades[0]);
+			if (choiceClass == 0){a.getClass1().setGrade((String) grades[gradesChoice]);}
+			if (choiceClass == 1){a.getClass2().setGrade((String) grades[gradesChoice]);}
+			if (choiceClass == 2){a.getClass3().setGrade((String) grades[gradesChoice]);}
+		}
+		public static void switchClass(Student a)
+		{
+			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
+			int fromClass = JOptionPane.showOptionDialog(null, "Which class?", "Switching class", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
+			int toClass = JOptionPane.showOptionDialog(null, "Which class?", "Switching class", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
 		}
 	}
