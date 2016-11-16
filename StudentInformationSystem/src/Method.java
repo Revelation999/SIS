@@ -103,5 +103,21 @@ public class Method
 			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
 			int fromClass = JOptionPane.showOptionDialog(null, "Which class?", "Switching class", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
 			int toClass = JOptionPane.showOptionDialog(null, "Which class?", "Switching class", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
+			Course x = null;
+			if (fromClass == 0)
+				{
+					if (toClass == 1){x = a.getClass1(); a.setClass1(a.getClass2()); a.setClass2(x);}
+					else{x = a.getClass1(); a.setClass1(a.getClass3());a.setClass3(x);}
+				}
+			else if (fromClass == 1)
+				{
+					if (toClass == 0){x = a.getClass2(); a.setClass2(a.getClass1()); a.setClass1(x);}
+					else{x = a.getClass2(); a.setClass2(a.getClass3());a.setClass3(x);}
+				}
+			else
+				{
+					if (toClass == 0){x = a.getClass3(); a.setClass3(a.getClass1()); a.setClass1(x);}
+					else{x = a.getClass3(); a.setClass3(a.getClass2());a.setClass2(x);}
+				}
 		}
 	}
