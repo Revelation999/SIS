@@ -1,7 +1,10 @@
 import java.util.*;
 import java.io.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 public class Method
 	{
+		static JFrame frame = new JFrame();
 		public static ArrayList <Student> generate() throws IOException
 		{
 			ArrayList <Student> studentList = new ArrayList <Student>();
@@ -54,6 +57,25 @@ public class Method
 				}
 			return count/(grades.length);
 		}
+		public static void printList(ArrayList <Student> list)
+		{
+			for (Student l: list)
+				{
+					System.out.printf("%10s",l.getFirstName());
+					System.out.printf("%10s",l.getLastName());
+					System.out.printf("%5f",l.getGPA());
+					System.out.printf("%3d",l.getClass1().getPeriod());
+					System.out.printf("%10s",l.getClass1().getClassName());
+					System.out.printf("%3s",l.getClass1().getGrade());
+					System.out.printf("%3d",l.getClass2().getPeriod());
+					System.out.printf("%10s",l.getClass2().getClassName());
+					System.out.printf("%3s",l.getClass2().getGrade());
+					System.out.printf("%5P:d",l.getClass3().getPeriod());
+					System.out.printf("%10s",l.getClass3().getClassName());
+					System.out.printf("%3s",l.getClass3().getGrade());
+					System.out.println();
+				}
+		}
 		public static void SortAlphabetically()
 		{
 			
@@ -65,5 +87,9 @@ public class Method
 		public static void SortClass()
 		{
 			
+		}
+		public static void changeGrade(Student a)
+		{
+			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
 		}
 	}
