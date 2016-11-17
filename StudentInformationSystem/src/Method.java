@@ -29,6 +29,7 @@ public class Method
 					String class3Grade = line.substring(ind+1);
 					String grades[] = {class1Grade,class2Grade,class3Grade};
 					double GPA = GPACalc(grades);
+					GPA = Math.round(GPA*100)/100;
 					Course class1 = new Course(class1Name, 1, class1Grade);
 					Course class2 = new Course(class2Name, 2, class2Grade);
 					Course class3 = new Course(class3Name, 3, class3Grade);
