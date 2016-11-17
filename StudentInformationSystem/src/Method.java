@@ -132,4 +132,13 @@ public class Method
 				}
 			return null;
 		}
+		public static void addStudent()
+		{
+//Kaitlin commit 2
+				 
+		}
+		public static void deleteStudent()
+		{
+			
+		}
 	}
