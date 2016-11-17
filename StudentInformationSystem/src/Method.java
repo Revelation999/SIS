@@ -120,4 +120,16 @@ public class Method
 					else{x = a.getClass3(); a.setClass3(a.getClass2());a.setClass2(x);}
 				}
 		}
+		public static Student findStudent(ArrayList <Student> studentList)
+		{
+			String lookingFor = (String) JOptionPane.showInputDialog(frame, "Input Student first name.", "Student finder", JOptionPane.PLAIN_MESSAGE, null, null, null);
+			for (Student i : studentList)
+				{
+					if (i.getFirstName().equalsIgnoreCase(lookingFor))
+						{
+							return i;
+						}
+				}
+			return null;
+		}
 	}
