@@ -6,6 +6,7 @@ public class Method
 	{
 		static JFrame frame = new JFrame();
 		public static ArrayList <Student> generate() throws IOException
+	
 		{
 			ArrayList <Student> studentList = new ArrayList <Student>();
 			Scanner reader = new Scanner(new File("studentInformation.txt"));
@@ -133,13 +134,42 @@ public class Method
 				}
 			return null;
 		}
-		public static void addStudent()
+		public static ArrayList <Student> addStudent(ArrayList <Student> studentList)
 		{
-//Kaitlin commit 2
-				 
+			System.out.println("What is the first name of the new student?");
+			@SuppressWarnings("resource")
+			Scanner userInput = new Scanner (System.in);
+			String firstName= userInput.nextLine();
+			System.out.println("What is the last name of the student?");
+			String lastName= userInput.nextLine();
+			System.out.println("What is the GPA of the student?");
+			double GPA= userInput.nextDouble();
+			System.out.println("What is the name of the first class of the student?");
+			String className1= userInput.nextLine();
+			System.out.println("What is the students grade in this class?");
+			String classGrade1 = userInput.nextLine();
+			System.out.println("What is the name of the second class of the student?");
+			String className2= userInput.nextLine();
+			System.out.println("What is the students grade in this class?");
+			String classGrade2 = userInput.nextLine();
+			System.out.println("What is the name of the third class of the student?");
+		    String className3= userInput.nextLine();
+		    System.out.println("What is the students grade in this class?");
+			String classGrade3 = userInput.nextLine();
+			Course class1 = new Course(className1, 1, classGrade1);
+			Course class2 = new Course(className2, 2, classGrade2);
+			Course class3 = new Course(className3, 3, classGrade3);
+			//commit1
+			studentList.add(new Student(firstName, lastName, GPA, class1, class2, class3));
+			return studentList;
 		}
-		public static void deleteStudent()
+		public static void deleteStudent(ArrayList <Student> studentList)
 		{
-			
+			System.out.println("What student would you like to delete?");
+			System.out.println("Input the number infront of the student name.");
+			Scanner userInput = new Scanner (System.in);
+			int deleted= userInput.nextInt();
+			deleted = Math.min(studentList.size()-1,Math.max(deleted, 0));
+			studentList.remove(deleted -1);
 		}
 	}
