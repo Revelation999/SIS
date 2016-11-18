@@ -123,7 +123,6 @@ public class Method
 		}
 		public static ArrayList <Student> addStudent(ArrayList <Student> studentList)
 		{
-			
 			System.out.println("What is the first name of the new student?");
 			@SuppressWarnings("resource")
 			Scanner userInput = new Scanner (System.in);
