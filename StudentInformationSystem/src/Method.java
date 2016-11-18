@@ -30,6 +30,7 @@ public class Method
 					String class3Grade = line.substring(ind+1);
 					String grades[] = {class1Grade,class2Grade,class3Grade};
 					double GPA = GPACalc(grades);
+					GPA = Math.round(GPA*100)/100;
 					Course class1 = new Course(class1Name, 1, class1Grade);
 					Course class2 = new Course(class2Name, 2, class2Grade);
 					Course class3 = new Course(class3Name, 3, class3Grade);
@@ -120,6 +121,18 @@ public class Method
 					if (toClass == 0){x = a.getClass3(); a.setClass3(a.getClass1()); a.setClass1(x);}
 					else{x = a.getClass3(); a.setClass3(a.getClass2());a.setClass2(x);}
 				}
+		}
+		public static Student findStudent(ArrayList <Student> studentList)
+		{
+			String lookingFor = (String) JOptionPane.showInputDialog(frame, "Input Student first name.", "Student finder", JOptionPane.PLAIN_MESSAGE, null, null, null);
+			for (Student i : studentList)
+				{
+					if (i.getFirstName().equalsIgnoreCase(lookingFor))
+						{
+							return i;
+						}
+				}
+			return null;
 		}
 		public static ArrayList <Student> addStudent(ArrayList <Student> studentList)
 		{
