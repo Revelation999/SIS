@@ -16,6 +16,7 @@ public class Student
 			class2 = c2;
 			class3 = c3;
 		}
+
 		public String getFirstName()
 			{
 				return firstName;
