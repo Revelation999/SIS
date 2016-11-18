@@ -146,7 +146,7 @@ public class Method
 			Course class1 = new Course(className1, 1, classGrade1);
 			Course class2 = new Course(className2, 2, classGrade2);
 			Course class3 = new Course(className3, 3, classGrade3);
-			//commit
+			//commit1
 			studentList.add(new Student(firstName, lastName, GPA, class1, class2, class3));
 			return studentList;
 		}
