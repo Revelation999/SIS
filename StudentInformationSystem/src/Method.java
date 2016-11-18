@@ -150,10 +150,6 @@ public class Method
 			
 			studentList.add(new Student(firstName, lastName, GPA, class1, class2, class3));
 			return studentList;
-			
-			
-			
-				 
 		}
 		public static void deleteStudent(ArrayList <Student> studentList)
 		{
@@ -163,6 +159,5 @@ public class Method
 			int deleted= userInput.nextInt();
 			deleted = Math.min(studentList.size()-1,Math.max(deleted, 0));
 			studentList.remove(deleted -1);
-			
 		}
 	}
