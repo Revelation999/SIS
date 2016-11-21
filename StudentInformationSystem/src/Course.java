@@ -1,5 +1,6 @@
+import java.util.Comparator;
 
-public class Course
+public class Course implements Comparator<Course>
 	{
 		private String className;
 		private int period;
@@ -33,6 +34,12 @@ public class Course
 		public void setGrade(String grade)
 			{
 				this.grade = grade;
+			}
+		@Override
+		public int compare(Course arg0, Course arg1)
+			{
+				// TODO Auto-generated method stub
+				return 0;
 			}
 	}
 //Kaitlin commit 1

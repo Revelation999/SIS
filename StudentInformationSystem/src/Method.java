@@ -6,7 +6,6 @@ public class Method
 	{
 		static JFrame frame = new JFrame();
 		public static ArrayList <Student> generate() throws IOException
-	
 		{
 			ArrayList <Student> studentList = new ArrayList <Student>();
 			Scanner reader = new Scanner(new File("studentInformation.txt"));
@@ -78,19 +77,62 @@ public class Method
 					System.out.println();
 				}
 		}
-		public static void SortAlphabetically()
+		public static ArrayList <Student> SortAlphabetically(ArrayList <Student> list1)
 		{
-			
+			ArrayList <Student> sorted = new ArrayList <Student>();
+			sorted.add(list1.get(0));
+			for (int i = 1; i < list1.size(); i++)
+				{
+					int place = 10;
+					for (int j = 0; j < sorted.size(); j++)
+						{
+							place =  list1.get(i).getLastName().compareToIgnoreCase(sorted.get(j).getLastName());
+							if (place >= 0)
+								{
+									sorted.add(j, list1.get(i));
+									break;
+								}
+						}
+				}
+			return sorted;
 		}
-		public static void SortGPA()
+		public static ArrayList<Student> SortGPA(ArrayList <Student> list2)
 		{
-			
+			ArrayList <Student> sorted = new ArrayList <Student>();
+			sorted.add(list2.get(0));
+			for (int i = 1; i < list2.size(); i++)
+				{
+					for (int j = 0; j < sorted.size(); j++)
+						{
+							if (list2.get(i).getGPA()>=sorted.get(j).getGPA())
+								{
+									sorted.add(j, list2.get(i));
+									break;
+								}
+						}
+				}
+			return sorted;
 		}
-		public static void SortClass()
+		public static ArrayList<Student> SortClass(ArrayList <Student> list3)
 		{
-			
+			ArrayList <Student> sorted = new ArrayList <Student>();
+			sorted.add(list3.get(0));
+			for (int i = 1; i < list3.size(); i++)
+				{
+					int place = 10;
+					for (int j = 0; j < sorted.size(); j++)
+						{
+							place =  list3.get(i).getClass1().getClassName().compareToIgnoreCase(sorted.get(j).getClass1().getClassName());
+							if (place >= 0)
+								{
+									sorted.add(j, list3.get(i));
+									break;
+								}
+						}
+				}
+			return sorted;
 		}
-		public static void changeGrade(Student a)
+		public static Student changeGrade(Student a)
 		{
 			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
 			int choiceClass = JOptionPane.showOptionDialog(null, "Which class?", "Changing grade", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
@@ -99,8 +141,9 @@ public class Method
 			if (choiceClass == 0){a.getClass1().setGrade((String) grades[gradesChoice]);}
 			if (choiceClass == 1){a.getClass2().setGrade((String) grades[gradesChoice]);}
 			if (choiceClass == 2){a.getClass3().setGrade((String) grades[gradesChoice]);}
+			return a;
 		}
-		public static void switchClass(Student a)
+		public static Student switchClass(Student a)
 		{
 			Object classes[] = {a.getClass1().getClassName(), a.getClass2().getClassName(), a.getClass3().getClassName()};
 			int fromClass = JOptionPane.showOptionDialog(null, "Which class?", "Switching class", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
@@ -121,18 +164,19 @@ public class Method
 					if (toClass == 0){x = a.getClass3(); a.setClass3(a.getClass1()); a.setClass1(x);}
 					else{x = a.getClass3(); a.setClass3(a.getClass2());a.setClass2(x);}
 				}
+			return a;
 		}
-		public static Student findStudent(ArrayList <Student> studentList)
+		public static int findStudent(ArrayList <Student> studentList)
 		{
 			String lookingFor = (String) JOptionPane.showInputDialog(frame, "Input Student first name.", "Student finder", JOptionPane.PLAIN_MESSAGE, null, null, null);
-			for (Student i : studentList)
+			for (int i = 0; i < studentList.size(); i++)
 				{
-					if (i.getFirstName().equalsIgnoreCase(lookingFor))
+					if (studentList.get(i).getFirstName().equalsIgnoreCase(lookingFor))
 						{
 							return i;
 						}
 				}
-			return null;
+			return -1;
 		}
 		public static ArrayList <Student> addStudent(ArrayList <Student> studentList)
 		{

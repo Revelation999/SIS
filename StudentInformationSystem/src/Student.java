@@ -1,5 +1,6 @@
+import java.util.Comparator;
 
-public class Student
+public class Student implements Comparator<Student>
 	{
 		private String firstName;
 		private String lastName;
@@ -63,5 +64,11 @@ public class Student
 		public void setClass3(Course class3)
 			{
 				this.class3 = class3;
+			}
+		@Override
+		public int compare(Student o1, Student o2)
+			{
+				// TODO Auto-generated method stub
+				return 0;
 			}
 	}
