@@ -27,7 +27,12 @@ public class Menu
 								if (changeClassAnswer == 2){continue;}
 								break;
 							}
-						case 2: {break;}
+						case 2: 
+							{
+								studentList = sortList(studentList);
+								//if (changeOrder == 3){continue;}
+								break;
+							}
 						default: {System.exit(0);}
 					}
 				}while(true);
@@ -63,6 +68,24 @@ public class Menu
 					studentList.set(a, b);
 				}
 			return answer;
+		}
+		public static ArrayList <Student> sortList (ArrayList <Student> studentList)
+		{
+			Object choice[] = {"Sort by GPA", "Sort by last name", "Sort by class 1 name"};
+			int answer = JOptionPane.showOptionDialog(null, "Choose your action", "SIS", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, choice, choice[0]);
+			if (answer == 0)
+				{
+					studentList = Method.SortGPA(studentList);
+				}
+			if (answer == 1)
+				{
+					studentList = Method.SortAlphabetically(studentList);
+				}
+			if (answer == 2)
+				{
+					studentList = Method.SortClass(studentList);
+				}
+			return studentList;
 		}
 
 	}
