@@ -11,6 +11,7 @@ public class Method
 			Scanner reader = new Scanner(new File("studentInformation.txt"));
 			while (reader.hasNextLine())
 				{
+					
 					String line = reader.nextLine();
 					int ind = line.indexOf(' ');
 					String firstName = line.substring(0, ind);
@@ -29,7 +30,7 @@ public class Method
 					String class3Grade = line.substring(ind+1);
 					String grades[] = {class1Grade,class2Grade,class3Grade};
 					double GPA = GPACalc(grades);
-					//GPA = Math.round(GPA*100)/100;
+					//GPA = Math.
 					Course class1 = new Course(class1Name, 1, class1Grade);
 					Course class2 = new Course(class2Name, 2, class2Grade);
 					Course class3 = new Course(class3Name, 3, class3Grade);
@@ -66,7 +67,7 @@ public class Method
 					System.out.printf("%-5d", i);
 					System.out.printf("%10s",l.getFirstName());
 					System.out.printf("%10s",l.getLastName());
-					System.out.printf("%5f",l.getGPA());
+					System.out.printf("%3.2f",l.getGPA());
 					System.out.printf("P:%-5d",l.getClass1().getPeriod());
 					System.out.printf("%10s",l.getClass1().getClassName());
 					System.out.printf("%3s",l.getClass1().getGrade());
@@ -114,7 +115,7 @@ public class Method
 				{
 					for (int j = 0; j < sorted.size(); j++)
 						{
-							if (list2.get(i).getGPA()>=sorted.get(j).getGPA())
+							if (list2.get(i).getGPA()<=sorted.get(j).getGPA())
 								{
 									sorted.add(j, list2.get(i));
 									added = true;
@@ -123,7 +124,7 @@ public class Method
 						}
 					if (!added){sorted.add(list2.get(i));a++;}
 				}
-			System.out.println(a);
+			sorted.add(list2.get(14));
 			return sorted;
 		}
 		public static ArrayList<Student> SortClass(ArrayList <Student> list3)
